@@ -13,6 +13,8 @@ public class ButtonExtention : Button
 
     protected override void Awake()
     {
+        base.Awake();
+
         button = GetComponent<Button>();
         button.onClick?.AddListener(action);
     }
