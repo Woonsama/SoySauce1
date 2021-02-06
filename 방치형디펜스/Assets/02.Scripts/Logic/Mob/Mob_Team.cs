@@ -4,7 +4,7 @@ using UnityEngine;
 using MobState;
 using Spine.Unity;
 
-public class Cricket : Mob, IMove, IStop, IAttack, IRayDistance
+public class Mob_Team : Mob, IMove, IStop, IAttack, IRayDistance
 {
     public enum EState
     {
@@ -28,16 +28,13 @@ public class Cricket : Mob, IMove, IStop, IAttack, IRayDistance
     private void Init()
     {
         skeletonAnimation = GetComponent<SkeletonAnimation>();
-
-        eState = EState.Idle;
-        skeletonAnimation.name = "Idle";
-        skeletonAnimation.loop = true;
+        Move();
     }
 
     private void Update()
     {
-        //DrawRay();
-        Move();
+        DrawRay();
+        Behaviour();
     }
 
     public void Move()
@@ -59,20 +56,24 @@ public class Cricket : Mob, IMove, IStop, IAttack, IRayDistance
     {
         eState = EState.Attack;
         skeletonAnimation.AnimationName = "Attack";
-        skeletonAnimation.loop = false;       
+        skeletonAnimation.loop = false;
     }
+
+    RaycastHit2D hit;
 
     public void DrawRay()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * stat.recognizeDistance,0,LayerMask.NameToLayer("Enemy") | LayerMask.NameToLayer("EnemyTower"));
+        hit = Physics2D.Raycast(transform.position, Vector2.right, stat.recognizeDistance, LayerMask.NameToLayer("Mob"));
 
         Debug.DrawLine(transform.position, (Vector2)transform.position + Vector2.right * stat.recognizeDistance, Color.green);
+    }
 
-        Debug.Log("충돌 여부 판정 : " + hit.collider);
-
+    private void Behaviour()
+    {
         if (hit)
         {
-            Stop();
+            Debug.Log("충돌 여부 판정 : " + hit.collider);
+            if (hit.collider.tag == "Enemy") Stop();
         }
         else
         {

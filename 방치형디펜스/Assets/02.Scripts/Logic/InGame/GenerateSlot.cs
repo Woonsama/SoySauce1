@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GenerateSlot : ActiveBase
 {
-    private const int c_MobCount = 4;
+    private const int c_MobCount = 7;
 
     [Header("Parent - Mob")]
     public Transform mobParent;
@@ -17,10 +17,7 @@ public class GenerateSlot : ActiveBase
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q)) GenerateMob(0);
-        if (Input.GetKeyDown(KeyCode.W)) GenerateMob(1);
-        if (Input.GetKeyDown(KeyCode.E)) GenerateMob(2);
-        if (Input.GetKeyDown(KeyCode.R)) GenerateMob(3);
+        if (Input.GetKeyDown(KeyCode.Q)) GenerateMob(Random.Range(0,c_MobCount));
     }
 
 
