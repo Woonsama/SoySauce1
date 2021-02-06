@@ -63,17 +63,19 @@ public class Mob_Enemy : Mob, IMove, IStop, IAttack, IRayDistance
 
     public void DrawRay()
     {
-        hit = Physics2D.Raycast(transform.position, Vector2.left, stat.recognizeDistance, LayerMask.NameToLayer("Mob"));
+        //hit = Physics2D.Raycast(transform.position, Vector2.left, stat.recognizeDistance, LayerMask.NameToLayer("Mob"));
 
-        if(!hit) Debug.DrawLine(transform.position, (Vector2)transform.position + Vector2.left * stat.recognizeDistance, Color.green);
+        hit = Physics2D.Raycast(transform.position, Vector2.left, stat.recognizeDistance);
+
+        if (!hit) Debug.DrawLine(transform.position, (Vector2)transform.position + Vector2.left * stat.recognizeDistance, Color.green);
     }
 
     private void Behaviour()
     {
-        if (hit)
+        if (hit.collider.tag == "Team")
         {
-            Debug.Log("충돌 여부 판정 : " + hit.collider);
-            if (hit.collider.tag == "Team") Stop();
+            Debug.Log("충돌체 : " + hit.collider.name);
+            Stop();
         }
         else
         {

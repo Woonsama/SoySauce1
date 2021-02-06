@@ -24,7 +24,7 @@ public class GenerateSlot : ActiveBase
     private void GenerateMob(int index)
     {
         GameObject mob = Instantiate(mobs[index], generateTransform.position, Quaternion.identity);
-        mob.transform.SetParent(generateTransform);
+        mob.transform.SetParent(mobParent);
         mob.name = "Mob";
     }
 }
