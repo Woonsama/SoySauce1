@@ -8,6 +8,8 @@ public class DataManager : SingletonMonoBase<DataManager>
 
     public SettingData settingData = new SettingData();
 
+    public AssetData assetData = new AssetData();
+
     protected override IEnumerator OnAwakeCoroutine()
     {
         DontDestroyOnLoad(this);
@@ -39,24 +41,14 @@ public class SettingData
 
 public class AssetData
 {
-    public enum EAssetType { Gold, None}
+    public enum EAssetType { Gold, Gem, None}
 
     public int iGold = 0;
+    public int iGem = 0;
 
     public AssetData()
     {
-        iGold = GetGold();
-    }
-
-    private int GetGold()
-    {
-        return PlayerPrefs.GetInt("Gold");
-    }
-
-    private void SetGold(int gold)
-    {
-        iGold = gold;
-        PlayerPrefs.SetInt("Gold", iGold);
+        Do_LoadData();
     }
 
     public void Do_Add_Or_Minus_Asset(EAssetType eAssetType, int amount)
@@ -66,6 +58,11 @@ public class AssetData
             case EAssetType.Gold:
                 iGold += amount;
                 break;
+
+            case EAssetType.Gem:
+                iGem += amount;
+                break;
+
             default:
                 break;
         }
@@ -78,8 +75,25 @@ public class AssetData
             case EAssetType.Gold:
                 iGold = value;
                 break;
+
+            case EAssetType.Gem:
+                iGem = value;
+                break;
+
             default:
                 break;
         }
+    }
+
+    public void Do_SaveData()
+    {
+        PlayerPrefs.SetInt("Gold", iGold);
+        PlayerPrefs.SetInt("Gem", iGem);
+    }
+
+    public void Do_LoadData()
+    {
+        iGold = PlayerPrefs.GetInt("Gold");
+        iGem = PlayerPrefs.GetInt("Gem");
     }
 }
