@@ -461,9 +461,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eSpeedType: 0
   sprite_Image_DoubleSpeed:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 2a1b14b152c2fa74389fde51963b0036, type: 3}
+  - {fileID: 21300000, guid: 2a1b14b152c2fa74389fde51963b0036, type: 3}
+  - {fileID: 21300000, guid: 2a1b14b152c2fa74389fde51963b0036, type: 3}
   image: {fileID: 108435436942704254}
 --- !u!114 &7176493764794309094
 MonoBehaviour:
@@ -1015,14 +1015,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fabda52b6adc24a4cbc976259757bb82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button_setting: {fileID: 0}
+  button_setting: {fileID: 3700268270497188979}
   panel_Setting: {fileID: 4781500441971514730}
-  button_DoubleSpeed: {fileID: 0}
+  button_DoubleSpeed: {fileID: 7176493764794309094}
   doubleSpeed: {fileID: 887584672747957555}
   image_Buff_1: {fileID: 108435438462086894}
-  image_Buff_2: {fileID: 0}
-  image_Buff_3: {fileID: 0}
-  image_Buff_4: {fileID: 0}
+  image_Buff_2: {fileID: 5764984397937517501}
+  image_Buff_3: {fileID: 6890050944830235473}
+  image_Buff_4: {fileID: 567083459169560139}
   text_stageNum: {fileID: 108435437556787046}
   getStage: {fileID: 1432325341260832223}
   text_Coin: {fileID: 5785202995912249933}
