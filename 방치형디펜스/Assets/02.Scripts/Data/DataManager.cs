@@ -15,6 +15,16 @@ public class DataManager : SingletonMonoBase<DataManager>
         DontDestroyOnLoad(this);
         return base.OnAwakeCoroutine();
     }
+
+    public void Do_SaveData()
+    {
+        "세이브".Log();
+    }
+
+    public void Do_LoadData()
+    {
+        "로드".Log();
+    }
 }
 
 public class GameData
@@ -48,7 +58,7 @@ public class AssetData
 
     public AssetData()
     {
-        Do_LoadData();
+
     }
 
     public void Do_Add_Or_Minus_Asset(EAssetType eAssetType, int amount)

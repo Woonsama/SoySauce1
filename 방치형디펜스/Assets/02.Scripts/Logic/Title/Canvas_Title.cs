@@ -34,6 +34,8 @@ public class Canvas_Title : CanvasBase
 
     private void Init()
     {
+        DataManager.Instance.Do_LoadData();
+
         StartCoroutine(Do_Fade());
     }
 
@@ -44,7 +46,6 @@ public class Canvas_Title : CanvasBase
         yield return new WaitForSeconds(2.0f);
         yield return StartCoroutine(Do_FadeOut());
         SetAlpha(1);
-        yield return new WaitForSeconds(1.0f);
         GoToInGame();
     }
 

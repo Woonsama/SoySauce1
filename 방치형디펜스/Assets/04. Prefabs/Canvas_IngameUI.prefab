@@ -989,7 +989,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button_setting: {fileID: 3700268270497188979}
   panel_Setting: {fileID: 4781500441971514730}
-  button_DoubleSpeed: {fileID: 0}
+  button_DoubleSpeed: {fileID: 7366069523637722096}
   doubleSpeed: {fileID: 887584672747957555}
   image_Buff_1: {fileID: 108435438462086894}
   image_Buff_2: {fileID: 5764984397937517501}
